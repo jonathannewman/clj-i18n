@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: docs@puppetlabs.com\n"
-"POT-Creation-Date: 2016-03-10 15:28-0800\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: 2015-03-26 17:16-0700\n"
 "Last-Translator: David Lutterkort <lutter@watzmann.net>\n"
 "Language-Team: German\n"
@@ -18,14 +18,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Very simple localization
-#: src/puppetlabs/i18n/main.clj:18
+#: src//puppetlabs/i18n/main.clj:18 src//puppetlabs/i18n/main.clj:20
 msgid "Welcome! This is localized"
 msgstr "Willkommen ! Draußen nur Kännchen"
 
-#: src/puppetlabs/i18n/main.clj:22
+#: src//puppetlabs/i18n/main.clj:26
 msgid "It took {0} programmers {1} months to implement this"
 msgstr "{0} Programmierer brauchten {1} Monat(e) um das zu implementieren"
 
-#: src/puppetlabs/i18n/main.clj:27
+#. first item is number of programmers, second is number of months
+#: src//puppetlabs/i18n/main.clj:29
+#, fuzzy
+msgid "It took {0} {1} to implement this"
+msgstr "{0} Programmierer brauchten {1} Monat(e) um das zu implementieren"
+
+#: src//puppetlabs/i18n/main.clj:30
+msgid "one programmer"
+msgid_plural "{0} programmers"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src//puppetlabs/i18n/main.clj:31
+msgid "One month"
+msgid_plural "{0} months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src//puppetlabs/i18n/main.clj:36
 msgid "There are {0,number,integer} bicycles in Beijing"
 msgstr "In Peking gibt es {0,number,integer} Fahrräder"
+
+#, fuzzy
+#~ msgid "One month to implement this"
+#~ msgid_plural "{0} months to implement this"
+#~ msgstr[0] ""
+#~ "{0} Programmierer brauchten {1} Monat(e) um das zu implementieren"
+#~ msgstr[1] ""
+#~ "{0} Programmierer brauchten {1} Monat(e) um das zu implementieren"

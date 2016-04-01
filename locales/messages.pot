@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: puppetlabs.i18n \n"
 "Report-Msgid-Bugs-To: docs@puppetlabs.com\n"
-"POT-Creation-Date: 2016-03-10 15:28-0800\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,16 +16,34 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #. Very simple localization
-#: src/puppetlabs/i18n/main.clj:18
+#: src//puppetlabs/i18n/main.clj:18 src//puppetlabs/i18n/main.clj:20
 msgid "Welcome! This is localized"
 msgstr ""
 
-#: src/puppetlabs/i18n/main.clj:22
+#: src//puppetlabs/i18n/main.clj:26
 msgid "It took {0} programmers {1} months to implement this"
 msgstr ""
 
-#: src/puppetlabs/i18n/main.clj:27
+#. first item is number of programmers, second is number of months
+#: src//puppetlabs/i18n/main.clj:29
+msgid "It took {0} {1} to implement this"
+msgstr ""
+
+#: src//puppetlabs/i18n/main.clj:30
+msgid "one programmer"
+msgid_plural "{0} programmers"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src//puppetlabs/i18n/main.clj:31
+msgid "One month"
+msgid_plural "{0} months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src//puppetlabs/i18n/main.clj:36
 msgid "There are {0,number,integer} bicycles in Beijing"
 msgstr ""

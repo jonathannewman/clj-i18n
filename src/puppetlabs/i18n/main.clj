@@ -17,10 +17,19 @@
   ;; Very simple localization
   (println (trs "Welcome! This is localized"))
 
+  (println (trs "Welcome! This is localized"))
+
   ;; String with arguments
-  (let [nprog 3 nmonths 5]
-    (println (i18n/tru "It took {0} programmers {1} months to implement this"
-                      nprog nmonths)))
+  (let [variants [[1 1] [2 2] [3 5] [7 1] [1 7]]]
+    (doseq [[nprog nmonths] variants]
+
+      (println (i18n/tru "It took {0} programmers {1} months to implement this"
+                        nprog nmonths))
+      ; first item is number of programmers, second is number of months
+      (println (str (i18n/tru "It took {0} {1} to implement this"
+                    (i18n/trun "one programmer" "{0} programmers" nprog)
+                    (i18n/trun "one month" "{0} months" nmonths))))))
+
 
   ;; String with special formatting
   (let [nbikes 9000000]

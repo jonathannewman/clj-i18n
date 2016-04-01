@@ -182,6 +182,20 @@
           msg))
       msg)))
 
+(defn lookup-plural
+  "Look msg up in the resource bundle for namespace in the locale loc. If
+  there is no resource bundle for it, or the resource bundle does not
+  contain an entry for msg, return msg itself"
+  [namespace loc msgid msgid-plural count]
+  (let [bundle (get-bundle namespace loc)]
+    (if bundle
+      (try
+        (.getString bundle msgid)
+        (catch java.util.MissingResourceException e
+          ;; no key for msg
+          msgid))
+      msgid)))
+
 (defn fmt
   "Use msg as a java.text.MessageFormat and interpolate the args
   into it according to locale loc.
@@ -198,18 +212,36 @@
   "Translate a message into the given locale, interpolating as
   needed. Messages are looked up in the resource bundle associated with the
   given namespace"
-  [namespace loc msg & args]
+  [namespace loc msg args]
   (fmt loc (lookup namespace loc msg) (to-array args)))
 
-(defmacro tru
-  "Translate a message into the user's locale, interpolating as needed"
-  [& args]
-  `(translate ~(namespace-munge *ns*) (user-locale) ~@args))
+(defn translate-plural
+  "Translate a message into the given locale, interpolating as
+  needed. Messages are looked up in the resource bundle associated with the
+  given namespace"
+  [namespace loc msgid msgid-plural count args]
+  (fmt loc (lookup-plural namespace loc msgid msgid-plural count) (to-array args)))
 
-(defmacro trs
+
+(defn tru
+  "Translate a message into the user's locale, interpolating as needed"
+  [msgid & args]
+  (translate (namespace-munge *ns*) (user-locale) msgid args))
+
+(defn trun
+  "Translate a message into the user's locale with pluralization interpolating as needed"
+  [msgid msgid-plural count & args]
+  (translate (namespace-munge *ns*) (user-locale) msgid args))
+
+(defn trs
   "Translate a message into the system locale, interpolating as needed"
-  [& args]
-  `(translate ~(namespace-munge *ns*) (system-locale) ~@args))
+  [msgid & args]
+  (translate (namespace-munge *ns*) (system-locale) msgid args))
+
+(defn trsn
+  "Translate a message into the system locale with pluralization, interpolating as needed"
+  [msgid msgid-plural count & args]
+  (translate-plural (namespace-munge *ns*) (system-locale) msgid msgid-plural count args))
 
 ;;
 ;; Ring middleware for language negotiation
